@@ -1,24 +1,19 @@
-# Taller 11 · Ejercicio 1 — Domicilios Rappi
+# Ejercicio 1 — Domicilios Rappi
 
-Programación 1 (POO) · Universidad Libre · Docente: Andrés Castaño
+Programación 1 · Universidad Libre · Docente: Andrés Castaño
 
-## Situación
-
-El administrador activa el recargo por lluvia, pero el cliente sigue viendo el precio normal y el repartidor no recibe el recargo. Además, la configuración se lee del disco cada vez que alguien la necesita.
-
-## Cómo ejecutar
+## Cómo ejecutarlo
 
 ```bash
 javac -d out src/*.java
 java -cp out Main
 ```
 
-Al final de la salida, la línea **ESPERADO** dice cómo debe verse el programa cuando quede corregido.
+## Qué hace
 
-## Qué hacer
+Calcula el precio de un domicilio para el cliente y la ganancia del repartidor a partir de una configuración (tarifa base, valor por km y recargo por lluvia). El administrador puede activar un recargo por lluvia.
 
-1. Ejecute el código tal como está y observe la diferencia con lo **ESPERADO**.
-2. Identifique en el código la(s) línea(s) que delatan el problema.
-3. Decida qué patrón creacional aplica (Singleton, Factory Method o Builder) y refactorice.
-4. Ajuste `Main.java` solo en lo necesario para usar su solución (no borre los casos de prueba).
-5. Haga commit y push de su solución en este repositorio.
+## Qué se resolvió
+
+- **Antes:** cada clase creaba su propia `ConfiguracionApp` con `new`. El recargo activado por el administrador quedaba en su copia y el cliente y el repartidor no lo veían (precio $6900 y ganancia $2400). Además, el archivo de configuración se leía tres veces.
+- **Ahora:** `ConfiguracionApp` es un **Singleton** (constructor privado y `getInstance()`). Todas las clases comparten la misma configuración, el precio de 3 km es $8900, la ganancia del repartidor es $4400 y la configuración se lee una sola vez.
