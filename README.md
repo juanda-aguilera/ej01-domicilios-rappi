@@ -16,4 +16,4 @@ Calcula el precio de un domicilio para el cliente y la ganancia del repartidor a
 ## Qué se resolvió
 
 - **Antes:** cada clase creaba su propia `ConfiguracionApp` con `new`. El recargo activado por el administrador quedaba en su copia y el cliente y el repartidor no lo veían (precio $6900 y ganancia $2400). Además, el archivo de configuración se leía tres veces.
-- **Ahora:** `ConfiguracionApp` es un **Singleton** (constructor privado y `getInstance()`). Todas las clases comparten la misma configuración, el precio de 3 km es $8900, la ganancia del repartidor es $4400 y la configuración se lee una sola vez.
+- **Ahora:** `ConfiguracionApp` es un **Singleton** (constructor privado y `getInstance()`). Todas las clases comparten la misma configuración, el precio de 3 km es $8900, la ganancia del repartidor es $4400 y la configuración se lee una sola vez
